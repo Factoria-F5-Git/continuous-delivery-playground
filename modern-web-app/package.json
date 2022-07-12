@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:unit": "jest --ci"
+    "test:unit": "jest --ci",
+    "test:smoke": "../scripts/smoke-test.sh"
   },
   "dependencies": {
     "next": "latest",
