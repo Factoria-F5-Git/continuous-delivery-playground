@@ -52,12 +52,15 @@ jobs:
 
 - **_env_**: To specify environment variables that can be reused across the pipeline definition.
 - **_working-directory_**: To change the directory from which GitHub Actions will execute the run commands
-- **_uses_**: To sepecify already defined GitHub Actions. You can think of these as reusable actions that you can incorporate in your pipeline, e.g. checkout, setup-node...
-- **_with_**: To pass parameters to already defined GitHub Actions.
+- **_uses_**: To sepecify already defined GitHub Actions. You can think of these as reusable actions that you can incorporate in your pipeline, e.g. checkout, setup-node... 
+For documentation and to find other actions you can go to the offical [GitHub marketplace](https://github.com/marketplace?type=actions). It's also good to check the documentation to get the newest version of the action. Some of the actions we've used here are: 
+[setup-node-js](https://github.com/marketplace/actions/setup-node-js-environment)
+[checkout](https://github.com/marketplace/actions/checkout)
+- **_with_**: To pass the parameters to already defined GitHub Actions.
 
 ### Let's test our new pipeline stage
 
-Once the changes are commited and pushed, the pipeline should run automatically as it is especified to run on push.
+Once the changes are commited and pushed, the pipeline should run automatically.
 
 ```bash
 git add .
