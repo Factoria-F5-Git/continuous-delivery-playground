@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on: push
 
@@ -25,3 +25,9 @@ jobs:
         run: |
           npm ci
           npm run test:unit
+
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World step
+        run: echo "Hello World!"
