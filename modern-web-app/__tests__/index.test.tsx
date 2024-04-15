@@ -11,8 +11,4 @@ describe('Home', () => {
 
     expect(heading).toBeInTheDocument()
   })
-
-  it('Zero is not equal to One', () => {
-    expect(1).toBe(0)
-  })
 })

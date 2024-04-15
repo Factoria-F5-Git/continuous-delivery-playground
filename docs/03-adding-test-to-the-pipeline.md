@@ -73,7 +73,7 @@ it('Zero is not equal to One', () => {
   })
 ```
 
-What happened now? Why did the Hello World step didn't run?
+What happened now? Why did the Hello World step didn't run? What has to change so the step after test runs?
 
 ### Pipeline Concepts
 
