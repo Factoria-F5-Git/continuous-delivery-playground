@@ -1,4 +1,4 @@
-# Lab 2: Creating a hello world pipeline
+# Lab 2: Creating a "hello world" step
 
 ### GitHub Actions to create a CI/CD pipeline
 

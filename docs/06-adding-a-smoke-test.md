@@ -1,4 +1,4 @@
-# Lab 6 - Continuous delivery: Adding a smoke test
+# Lab 6 - Continuous delivery: Step 4: Adding a smoke test
 
 The goal of this lab is to show you how you could add a simple smoke test to your pipeline to make sure the application is still working after a deployment.
 

@@ -1,4 +1,4 @@
-# Lab 5: Continuous delivery - Deploying the app
+# Lab 5: Continuous delivery - Step 3: Deploying the app
 
 The goal of this lab is to show you how you could automate the deployment of the app to a specific environment, e.g. staging or production.
 

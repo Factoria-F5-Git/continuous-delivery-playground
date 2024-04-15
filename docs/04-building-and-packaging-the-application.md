@@ -1,4 +1,4 @@
-# Lab 4: Continuous integration - Building and packaging the app
+# Lab 4: Continuous integration - Step 2: Building and packaging the app
 
 The goal of this lab is to show you how to add a stage in our pipeline to build and package the app.
 

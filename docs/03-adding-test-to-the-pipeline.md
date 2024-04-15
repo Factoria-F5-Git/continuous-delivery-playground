@@ -1,8 +1,8 @@
-# Lab 3: Continuous integration - Testing the app
+# Lab 3: Continuous integration - Step 1: Running the tests
 
 The goal of this lab is to create the first stage in our CD pipeline, the test step. We will use what we learnt in lab 2 and replace our hello world pipeline for something more useful.
 
-## Adding a testing stage to our continuous integration process
+## Adding Test step to our CI
 
 Given that our application code is not in the root folder, we need to tell GitHub Actions where to run the commands from. Lets specify that the NPM commands needs to be run from the modern-web-app directory. Lets add to our `pipeline.yml` the following:
 
@@ -16,7 +16,7 @@ We also need to tell one of the GitHub Actions which version of Node.js we need.
 
 ```yml
 env:
-  NODE_VERSION: "21.6"
+  NODE_VERSION: "21.6.2"
 ```
 
 The next step is to simply specify the test job and add it to the pipeline definition (`pipeline.yml`):
@@ -37,9 +37,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Run unit tests
@@ -47,6 +47,33 @@ jobs:
           npm ci
           npm run test:unit
 ```
+
+## Test gate keeping
+Now we will see what happens if we add a dummy step after the test and we purposely make the test fail.
+
+We will readd the Hello World step, after test:
+
+```yml
+jobs:
+  test:
+    ...
+
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World step
+        run: echo "Hello World!"
+```
+
+And then we will add a the test to make it break:
+
+```tsx
+it('Zero is not equal to One', () => {
+    expect(1).toBe(0)
+  })
+```
+
+What happened now? Why did the Hello World step didn't run?
 
 ### Pipeline Concepts
 

@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on: push
 
 env:
-  NODE_VERSION: "21.6"
+  NODE_VERSION: "21.6.2"
 
 defaults:
   run:
