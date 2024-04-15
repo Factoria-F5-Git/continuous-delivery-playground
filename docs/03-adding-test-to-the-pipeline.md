@@ -57,12 +57,11 @@ We will readd the Hello World step, after test:
 jobs:
   test:
     ...
-
-  hello-world:
-    runs-on: ubuntu-latest
     steps:
+      ...
       - name: Hello World step
-        run: echo "Hello World!"
+        run: |
+          echo "Hello World!"
 ```
 
 And then we will add a the test to make it break:
