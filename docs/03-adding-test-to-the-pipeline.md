@@ -4,7 +4,7 @@ The goal of this lab is to create the first stage in our CD pipeline, the test s
 
 ## Adding a testing stage to our continuous integration process
 
-Given that our application code is not in the root folder, we need to tell GH Actions where to run the commands from. Lets specify that the NPM commands needs to be run from the modern-web-app directory.
+Given that our application code is not in the root folder, we need to tell GitHub Actions where to run the commands from. Lets specify that the NPM commands needs to be run from the modern-web-app directory. Lets add to our `pipeline.yml` the following:
 
 ```yml
 defaults:
@@ -12,16 +12,24 @@ defaults:
     working-directory: modern-web-app
 ```
 
-We also need to tell one of the GH Actions we will use wich version of Node.js we need. We can do that by declaring an environment variable that we can reference later on.
+We also need to tell one of the GitHub Actions which version of Node.js we need. First run `node --version` in your terminal and then add the version as an environment variable:
 
 ```yml
 env:
-  NODE_VERSION: "14.17"
+  NODE_VERSION: "21.6"
 ```
 
-The next step is to simply specify the test job and add it to the pipeline definition:
+The next step is to simply specify the test job and add it to the pipeline definition (`pipeline.yml`):
 
 ```yml
+on: push
+
+env: 
+  ...
+
+defaults:
+  ...
+
 jobs:
   test:
     name: Test
@@ -43,9 +51,9 @@ jobs:
 ### Pipeline Concepts
 
 - **_env_**: To specify environment variables that can be reused across the pipeline definition.
-- **_working-directory_**: To change the directory from which GH Actions will execute the run commands
-- **_uses_**: To sepecify already defined GH Actions. You can think of these as reusable actions that you can incorporate in your pipeline, e.g. checkout, setup-node...
-- **_with_**: To pass parameters to already defined GH Actions.
+- **_working-directory_**: To change the directory from which GitHub Actions will execute the run commands
+- **_uses_**: To sepecify already defined GitHub Actions. You can think of these as reusable actions that you can incorporate in your pipeline, e.g. checkout, setup-node...
+- **_with_**: To pass parameters to already defined GitHub Actions.
 
 ### Let's test our new pipeline stage
 
@@ -67,7 +75,7 @@ Test automation is the practices of automating test tasks to make sure the appli
 
 ## Lab checklist
 
-- [x] Read the instructions
+- [ ] Read the instructions
 - [ ] Replace the hello world job with the new test job
 - [ ] Push the changes and check the pipeline execution in the Actions tab
 - [ ] Break the tests, commit and push the changes. Check what happens.
