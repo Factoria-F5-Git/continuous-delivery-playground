@@ -28,6 +28,7 @@ jobs:
 
   hello-world:
     name: Hello World
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Hello World step
