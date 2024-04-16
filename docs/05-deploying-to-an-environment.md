@@ -4,9 +4,9 @@ The goal of this lab is to show you how you could automate the deployment of the
 
 > Note: this lab builds upon the results of the previous labs
 
-## Adding a deployment stage to our continuous deployment pipeline
+## Adding a deployment stage to our continuous delivery pipeline
 
-In previous stages of the pipeline we make sure the latest changes were integrated, the test were passing and the application is built and package. That gives us enough confident that we can deploy the latest version of the application to an environment.
+In previous stages of the pipeline we make sure the latest changes were integrated, the test were passing and the application is built and packaged. That gives us enough confidence that we can deploy the latest version of the application to an environment.
 
 Think about it, when do the latest code changes start delivering value? Is it when they are tested and the application is built or is it when they are deployed and released to the end users?
 
@@ -75,7 +75,18 @@ git push
 
 ## Option 2: Let's perform a real deployment (WIP)
 
+Let's first try it locally:
+
+1. Install vercel using `npm i -g vercel`
+2. Run `vercel` to set up the environment
+3. Run `vercel --prod` to push to production the latest version of the application
+
+
 Lets add a new job that allow us to deploy our modern web app to an environment that we will call production.
+
+Create a Token so GitHub can get access to our personal Vercel account through the Vercel API.
+Tokens > Create Token
+Secrets and variables > Actions > Actions secrets > New secret
 
 ```yaml
 jobs:
@@ -98,8 +109,6 @@ jobs:
                 npm i -g vercel
                 vercel --token "$VERCEL_TOKEN" --prod
               env:
-                VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-                VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
                 VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 ```
 
