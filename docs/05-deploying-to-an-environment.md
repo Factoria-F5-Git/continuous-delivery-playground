@@ -123,7 +123,7 @@ jobs:
 
 ## Lab checklist
 
-- [x] Read the instructions
+- [ ] Read the instructions
 - [ ] Add the deploy:simulate tasks in the NPM scripts declaration
 - [ ] Add the automated deployment job to the CD pipeline
 - [ ] Push the changes and check the pipeline logs in the Actions tab
