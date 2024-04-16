@@ -84,9 +84,14 @@ Let's first try it locally:
 
 Lets add a new job that allow us to deploy our modern web app to an environment that we will call production.
 
-Create a Token so GitHub can get access to our personal Vercel account through the Vercel API.
-Tokens > Create Token
+We have to create a Token so GitHub impersonate our personal Vercel account through the Vercel API.
+First we will create a token in Vercel going to `Account Settings > Tokens > Create Token`
+
+Then we will add this secret into GitHub actions, <code style="color : red">  IMPORTANT: never commit secrets in your repository, even if it's private </code>
+
 Secrets and variables > Actions > Actions secrets > New secret
+
+Navigate to `./vercel/project.json` and you will find the `orgId` and `projectId` needed to connect to the project in Vercel.
 
 ```yaml
 jobs:
