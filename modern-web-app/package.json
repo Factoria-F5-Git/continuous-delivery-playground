@@ -4,8 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:unit": "jest --ci",
-    "vercel-build": "npm run prepare && next build"
+    "test:unit": "jest --ci"
   },
   "dependencies": {
     "next": "latest",
