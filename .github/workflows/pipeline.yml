@@ -28,4 +28,24 @@ jobs:
       - name: Hello World step
         run: |
           echo "Hello World!"
+  build:
+    name: Build
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+            node-version: ${{ env.NODE_VERSION }}
+      - name: Build the application
+        run: |
+          npm ci
+          npm run build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: modern-web-app-v${{ github.sha }}
+          path: modern-web-app/.next/
      
