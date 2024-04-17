@@ -69,3 +69,17 @@ jobs:
       - name: Deploy Project to Vercel
         working-directory: .
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+  verify-prod-deployment:
+    name: Verify deployment to production
+    needs: deploy-prod
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Deploy with Node.js ${{ env.NODE_VERSION }}
+          uses: actions/setup-node@v4
+          with:
+              node-version: ${{ env.NODE_VERSION }}
+        - name: Run smoke test
+          run: |
+            npm run test:smoke
