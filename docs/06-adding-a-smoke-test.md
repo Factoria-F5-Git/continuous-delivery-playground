@@ -70,7 +70,7 @@ Smoke tests are designed to reveal these types of failures early by running test
 
 ## Lab checklist
 
-- [x] Read the instructions
+- [ ] Read the instructions
 - [ ] Add the smoke test job to the pipeline
 - [ ] Push the changes and check the pipeline logs in the Actions tab
 - [ ] Think about other ways to perform smoke tests rather than using curl

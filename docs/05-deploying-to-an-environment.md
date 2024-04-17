@@ -43,25 +43,27 @@ Now we can add the following infra as code in our pipeline:
 ```yaml
 jobs:
     [...]
-    deploy-prod:
-        name: Deploy to prod
-        needs: check-performance
-        runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/main'
-
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
-            - name: Deploy with Node.js ${{ env.NODE_VERSION }}
-              uses: actions/setup-node@v1
-              with:
-                  node-version: ${{ env.NODE_VERSION }}
-            - name: Deploy to prod environment
-              run: |
-                npm i -g vercel
-                vercel --token "$VERCEL_TOKEN" --prod
-              env:
-                VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  deploy-prod:
+    name: Deploy to vecel prod
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy with Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+            node-version: ${{ env.NODE_VERSION }}
+      - name: Install Vercel
+        run: npm install --global vercel@latest
+      - name: Deploy Project to Vercel
+        working-directory: .
+        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
 ```
 
 ## Useful Theory
