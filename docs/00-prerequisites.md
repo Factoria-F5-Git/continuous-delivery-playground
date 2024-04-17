@@ -1,22 +1,22 @@
-# Prerequisites
+# Prerrequisitos
 
-## Installing the build tool
+## Instalación de la herramienta de compilación
 
-This tutorial uses npm as a build tool. You need to have Node.js installed in your computer. You can find instructions on [how to install Node.js](https://nodejs.org/en/download/) in the official website.
+Este tutorial utiliza npm como herramienta de compilación. Necesitas tener Node.js instalado en tu ordenador. Puedes encontrar instrucciones sobre [cómo instalar Node.js](https://nodejs.org/en/download/) en la web oficial.
 
-To download the latest version of npm, on the command line, run the following command:
+Para descargar la última versión de npm, en la línea de comandos, ejecuta el siguiente comando:
 
 ```
 npm install -g npm
 ```
 
-Check that is working:
+Verifica que esté funcionando:
 
 ```
 npm -v
 ```
 
-## Installing the application dependencies
+## Instalación de las dependencias de la aplicación
 
 ```
 cd modern-web-app

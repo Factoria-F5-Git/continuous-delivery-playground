@@ -66,6 +66,8 @@ jobs:
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
 ```
 
+In the previous step we first install vercel in the server to be able to use the vercel commands and then we deploy the latest version of te project to Vercel. Important to note that for the deployment we are setting the current directory (a.k.a. working-directory) as `.` instead of the default `modern-web-app`. That's because we locally deployed the application from that level, and not the root of the project.
+
 ## Useful Theory
 
 [What are the differences between continuous integration vs. delivery vs. deployment?](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)

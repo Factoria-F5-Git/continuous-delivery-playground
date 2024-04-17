@@ -43,7 +43,7 @@ Lets add a new job to our pipeline that runs this script:
 jobs:
     [...]
     verify-prod-deployment:
-      name: Verify deployment
+      name: Verify deployment to prod
       needs: deploy-prod
       runs-on: ubuntu-latest
       steps:

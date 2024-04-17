@@ -29,7 +29,7 @@ jobs:
                 npm ci
                 npm run build
             - name: Upload artifacts
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: modern-web-app-v${{ github.sha }}
                 path: modern-web-app/.next/
@@ -39,6 +39,14 @@ jobs:
 As you can see, we added a step to build the application and its dependecies with NPM. Finally, we use the upload-artifact GitHub Action to upload a build artifact into the GitHub server that contains a packaged version of the application.
 
 > "Only build packages once. We want to be sure the thing we’re deploying is the same thing we’ve tested throughout the deployment pipeline, so if a deployment fails we can eliminate the packages as the source of the failure." -- by [continuousdelivery.com](https://continuousdelivery.com/implementing/patterns/)
+
+### Pipeline Concepts
+- **_needs_**: This step will not run unless the step defined here is successful.
+- **_uses_**: To specify already defined GitHub Actions. You can think of these as reusable actions that you can incorporate in your pipeline, e.g. checkout, setup-node... 
+For documentation and to find other actions you can go to the offical [GitHub marketplace](https://github.com/marketplace?type=actions). It's also good to check the documentation to get the newest version of the action. Some of the actions we've used here are: 
+[setup-node-js](https://github.com/marketplace/actions/setup-node-js-environment)
+[checkout](https://github.com/marketplace/actions/checkout)
+- **_with_**: To pass the parameters to already defined GitHub Actions.
 
 ## Lab checklist
 

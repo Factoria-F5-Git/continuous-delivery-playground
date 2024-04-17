@@ -70,7 +70,7 @@ jobs:
         working-directory: .
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
   verify-prod-deployment:
-    name: Verify deployment to production
+    name: Verify deployment to prod
     needs: deploy-prod
     runs-on: ubuntu-latest
     steps:
