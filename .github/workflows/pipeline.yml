@@ -55,8 +55,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: "team_NHXgHJ6UfNHmYqdbON7GxDSe"
-      VERCEL_PROJECT_ID: "prj_66Bg0KOdnRcbhHWF0GuQbGEVOO1s" 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

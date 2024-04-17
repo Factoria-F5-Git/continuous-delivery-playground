@@ -87,7 +87,9 @@ Lets add a new job that allow us to deploy our modern web app to an environment 
 We have to create a Token so GitHub impersonate our personal Vercel account through the Vercel API.
 First we will create a token in Vercel going to `Account Settings > Tokens > Create Token`
 
-Then we will add this secret into GitHub actions, <code style="color : red">  IMPORTANT: never commit secrets in your repository, even if it's private </code>
+![Create token](./images/vercel-token.png)
+
+Then we will add this secret into GitHub actions, <code style="color : red">  IMPORTANT: never commit secrets in your repository</code>
 
 Secrets and variables > Actions > Actions secrets > New secret
 
