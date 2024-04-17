@@ -16,6 +16,11 @@ exports[`renders homepage unchanged 1`] = `
           Next.js!
         </a>
       </h1>
+      <h2
+        class="title"
+      >
+        My name is Sara
+      </h2>
       <p
         class="description"
       >
