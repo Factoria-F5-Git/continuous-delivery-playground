@@ -66,8 +66,6 @@ jobs:
             node-version: ${{ env.NODE_VERSION }}
       - name: Install Vercel
         run: npm install --global vercel@latest
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project to Vercel
         working-directory: .
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
