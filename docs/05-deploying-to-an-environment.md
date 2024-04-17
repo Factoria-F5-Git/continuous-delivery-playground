@@ -91,13 +91,15 @@ First we will create a token in Vercel going to `Account Settings > Tokens > Cre
 
 Then we will add this secret into GitHub actions, <code style="color : red">  IMPORTANT: never commit secrets in your repository</code>
 
-Secrets and variables > Actions > Actions secrets > New secret
+`Secrets and variables > Actions > Actions secrets > New secret`
 
-Navigate to `./vercel/project.json` and you will find the `orgId` and `projectId` needed to connect to the project in Vercel.
+![Create secret](./images/github-secrets.png)
+
+Now we can add the following infra as code in our pipeline:
 
 ```yaml
 jobs:
-    [....]
+    [...]
     deploy-prod:
         name: Deploy to prod
         needs: check-performance
