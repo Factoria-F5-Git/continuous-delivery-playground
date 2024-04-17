@@ -56,9 +56,9 @@ We will readd the Hello World step, after test:
 ```yml
 jobs:
   test:
-    ...
+    [...]
     steps:
-      ...
+      [...]
       - name: Hello World step
         run: |
           echo "Hello World!"
@@ -73,6 +73,9 @@ it('Zero is not equal to One', () => {
 ```
 
 What happened now? Why did the Hello World step didn't run? What has to change so the step after test runs?
+
+### Bonus - snapshot testing
+If you go to the file `snapshot.tsx` you'll see we are testing a snapshot of our app. This means that if we change html of the application without updating the current snapshot, the test will fail. So if you want to play around with changing the visual part, after that use `jest --updateSnapshot` to update the current snapshot and that will avoid the test failing.
 
 ### Pipeline Concepts
 
